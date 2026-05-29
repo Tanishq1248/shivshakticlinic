@@ -85,7 +85,7 @@ export function AdminPasswordModal({
       />
 
       {/* Card */}
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-sm p-7 z-10 animate-[adminSlideIn_0.2s_ease-out]">
+      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl p-7 z-10 animate-[adminSlideIn_0.2s_ease-out]">
         {/* Lock icon */}
         <div className="w-14 h-14 rounded-full bg-primary-container/20 flex items-center justify-center mx-auto mb-4">
           <span
