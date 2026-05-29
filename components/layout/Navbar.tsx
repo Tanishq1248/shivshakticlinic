@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useState, useRef, useEffect } from "react";
+import { AdminPasswordModal, useAdminTrigger } from "@/components/admin/AdminAuthGuard";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -14,14 +15,35 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const { showPasswordModal, setShowPasswordModal, handleLogoTap } = useAdminTrigger();
 
   return (
     <>
+      {/* Password modal triggered by shortcut */}
+      {showPasswordModal && (
+        <AdminPasswordModal
+          onClose={() => setShowPasswordModal(false)}
+          onSuccess={() => {
+            setShowPasswordModal(false);
+            router.push("/admin");
+          }}
+        />
+      )}
+
       <nav className="bg-surface/70 backdrop-blur-md border-b border-outline-variant/30 shadow-sm w-full top-0 sticky z-50 transition-all duration-300">
         <div className="flex justify-between items-center w-full px-lg max-w-container-max mx-auto h-20">
-          {/* Brand */}
-          <Link href="/" className="flex items-center gap-sm cursor-pointer group">
+          {/* Brand — triple tap on mobile = admin shortcut */}
+          <Link
+            href="/"
+            className="flex items-center gap-sm cursor-pointer group"
+            onTouchEnd={(e) => {
+              // Don't intercept navigation on single tap
+              handleLogoTap();
+            }}
+          >
             <div className="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
               <span
                 className="material-symbols-outlined text-on-primary-container"
