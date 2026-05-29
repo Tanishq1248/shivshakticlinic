@@ -85,7 +85,7 @@ export function AdminPasswordModal({
       />
 
       {/* Card */}
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl p-7 z-10 animate-[adminSlideIn_0.2s_ease-out]">
+      <div className="relative bg-white rounded-2xl shadow-2xl w-full  p-7 z-10 animate-[adminSlideIn_0.2s_ease-out]">
         {/* Lock icon */}
         <div className="w-14 h-14 rounded-full bg-primary-container/20 flex items-center justify-center mx-auto mb-4">
           <span
@@ -203,7 +203,7 @@ export default function AdminAuthGuard({ children }: { children: React.ReactNode
   /* Not authenticated — show full-page password screen */
   return (
     <div className="min-h-screen bg-[#F8FAFB] flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-sm p-8">
+      <div className="bg-white rounded-2xl shadow-xl w-full  p-8">
         {/* Lock icon */}
         <div className="w-16 h-16 rounded-full bg-[#0E4D4D]/10 flex items-center justify-center mx-auto mb-5">
           <span
