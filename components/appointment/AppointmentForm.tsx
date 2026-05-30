@@ -103,26 +103,14 @@ export default function AppointmentForm() {
   if (success) {
     return (
       <div className="flex flex-col items-center justify-center py-xl text-center">
-        <div className="w-20 h-20 rounded-full bg-secondary/20 flex items-center justify-center mb-md">
-          <span className="material-symbols-outlined text-[40px] text-secondary">check_circle</span>
+        <div className="w-20 h-20 rounded-full bg-green-400 flex items-center justify-center mb-md">
+          <span className="material-symbols-outlined text-[40px] text-white">check_circle</span>
         </div>
         <h3 className="font-headline-md text-headline-md text-primary mb-sm">Appointment Booked!</h3>
-        <p className="font-body-md text-body-md text-on-surface-variant max-w-md mb-lg">
-          Your appointment has been saved. Please confirm on WhatsApp for instant confirmation.
+        <p className="font-body-md text-body-md text-on-surface-variant  mb-lg">
+          Your appointment has been booked. We will confirm on WhatsApp for instant confirmation.
         </p>
-        {whatsappUrl && (
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-sm bg-[#25D366] text-white font-button text-button px-lg py-sm rounded-full hover:opacity-90 transition-opacity shadow-sm mb-md"
-          >
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
-              chat
-            </span>
-            Confirm on WhatsApp
-          </a>
-        )}
+       
         <button
           onClick={reset}
           className="btn-gradient text-on-primary font-button text-button px-lg py-sm rounded-full hover:shadow-lg transition-all"
